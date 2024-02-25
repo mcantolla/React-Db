@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Alerta from './Alerta';
 
 function Formulario({onFormSubmit}) {
 
@@ -55,20 +56,28 @@ function Formulario({onFormSubmit}) {
   }
 
   return (
+    <>
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-2" controlId="formBasicEmail">
         <Form.Label>Agregar colaborador</Form.Label>
-        <Form.Control type="text" name="nombre" value={colaborador.nombre} onChange={handleChange} placeholder="Nombre del colaborador" />
-        <Form.Control type="text" name="email" value={colaborador.email} onChange={handleChange} placeholder="Email del colaborador" />
-        <Form.Control type="number" name="edad" value={colaborador.edad} onChange={handleChange} placeholder="Edad del colaborador" />
-        <Form.Control type="text" name="cargo" value={colaborador.cargo} onChange={handleChange} placeholder="Cargo del colaborador" />
-        <Form.Control type="number" name="telefono" value={colaborador.telefono} onChange={handleChange} placeholder="Telefono del colaborador" />
+        <Form.Control type="text" className='mb-2' name="nombre" value={colaborador.nombre} onChange={handleChange} placeholder="Nombre del colaborador" />
+        <Form.Control type="text" className='mb-2' name="email" value={colaborador.email} onChange={handleChange} placeholder="Email del colaborador" />
+        <Form.Control type="number" className='mb-2' name="edad" value={colaborador.edad} onChange={handleChange} placeholder="Edad del colaborador" />
+        <Form.Control type="text" className='mb-2' name="cargo" value={colaborador.cargo} onChange={handleChange} placeholder="Cargo del colaborador" />
+        <Form.Control type="number" className='mb-2' name="telefono" value={colaborador.telefono} onChange={handleChange} placeholder="Telefono del colaborador" />
       </Form.Group>
       <Button variant="primary" type="submit">
         Agregar colaborador
       </Button>
     </Form>
-  );
+    {alerta && (
+      <Alerta 
+        color={colorAlerta}
+        mensaje={mensajeAlerta}>
+      </Alerta>
+    )}
+    </>
+  )
 }
 
 export default Formulario;

@@ -1,0 +1,10 @@
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.listaWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}

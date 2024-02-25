@@ -1,7 +1,8 @@
-import { Table } from "react-bootstrap"
+import { Table, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Listado(props) {
+function Listado({data, onDelete}) {
+
     return (
       <>
         <Table striped bordered hover>
@@ -15,13 +16,16 @@ function Listado(props) {
                 </tr>
             </thead>
             <tbody>
-            {props.data.map((colaborador) => (
+            {data.map((colaborador) => (
                     <tr key={colaborador.id}>
                         <td>{colaborador.nombre}</td>
                         <td>{colaborador.correo}</td>
                         <td>{colaborador.edad}</td>
                         <td>{colaborador.cargo}</td>
                         <td>{colaborador.telefono}</td>
+                        <td>
+                          <Button onClick={() => onDelete(colaborador.id)} variant="danger">Borrar</Button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
